@@ -7,8 +7,8 @@ import adderSchedule
 import pyverilog.vparser.ast as vast
 from pyverilog.ast_code_generator.codegen import ASTCodeGenerator
 def main():
-    n = 30
-    k = 7
+    n = 40
+    k = 8
     adderPerCycle = adderSchedule.adderSchedule(n,k)
     adderCount = max(adderPerCycle)
     print(adderPerCycle)
