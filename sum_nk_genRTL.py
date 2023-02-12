@@ -7,8 +7,8 @@ import sum_nk_genSched
 import pyverilog.vparser.ast as vast
 from pyverilog.ast_code_generator.codegen import ASTCodeGenerator
 def main():
-    n = 40
-    k = 8
+    n = 70
+    k = 9
     adderPerCycle = sum_nk_genSched.adderSchedule(n,k)
     adderCount = max(adderPerCycle)
     print(adderPerCycle)
@@ -136,9 +136,9 @@ def main():
                         vast.Lvalue(vast.Identifier(in1)),
                         vast.Rvalue(vast.Identifier(regName))))
                         
-        for k in range(i):
-            regName = str("resNxt" + str(k + 1))
-            outName = str("out" + str(k + 1))
+        for j in range(i):
+            regName = str("resNxt" + str(j + 1))
+            outName = str("out" + str(j + 1))
             state.append(vast.BlockingSubstitution(
                 vast.Lvalue(vast.Identifier(regName)),
                 vast.Rvalue(vast.Identifier(outName))))
@@ -170,7 +170,7 @@ def main():
     codegen = ASTCodeGenerator()
     rslt = codegen.visit(ast)
     print(rslt)
-    file1 = open("topModule.v", "w")
+    file1 = open("genRTL\sum_n" + str(n) + "k" + str(k) + ".v" , "w")
     file1.write(rslt)
     file1.close()
 
