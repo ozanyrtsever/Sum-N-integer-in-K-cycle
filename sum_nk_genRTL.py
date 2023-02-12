@@ -3,13 +3,13 @@ from __future__ import print_function
 import sys
 import os
 import math
-import adderSchedule
+import sum_nk_genSched
 import pyverilog.vparser.ast as vast
 from pyverilog.ast_code_generator.codegen import ASTCodeGenerator
 def main():
     n = 40
     k = 8
-    adderPerCycle = adderSchedule.adderSchedule(n,k)
+    adderPerCycle = sum_nk_genSched.adderSchedule(n,k)
     adderCount = max(adderPerCycle)
     print(adderPerCycle)
     params = vast.Paramlist( [] )
